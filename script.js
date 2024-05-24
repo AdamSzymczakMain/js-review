@@ -143,12 +143,19 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(2);
+const book = getBook(1);
 
 const { author, title, genres } = book;
 
 console.log(author, title);
 
-const [firstGenre, secondaryGenre] = genres;
+const [firstGenre, secondaryGenre, ...other] = genres;
 
-console.log(firstGenre, secondaryGenre);
+console.log(firstGenre, secondaryGenre, other);
+
+const newArray = ["si-fi", ...genres];
+
+console.log(newArray);
+
+const newObject = { ...book, moviePublicationDate: " 2001-12-19", pages: 1111 };
+console.log(newObject);
