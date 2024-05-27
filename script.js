@@ -145,9 +145,12 @@ function getBook(id) {
 
 const book = getBook(1);
 
-const { author, title, genres } = book;
+const { author, title, genres, pages, publicationDate, hasMovieAdaptation } =
+  book;
 
 console.log(author, title);
+
+// REST OPERATOR
 
 const [firstGenre, secondaryGenre, ...other] = genres;
 
@@ -157,5 +160,52 @@ const newArray = ["si-fi", ...genres];
 
 console.log(newArray);
 
-const newObject = { ...book, moviePublicationDate: " 2001-12-19", pages: 1111 };
+// SPREAD OPERATOR
+
+const newObject = {
+  ...book,
+  moviePublicationDate: " 2001-12-19",
+  // pages: 1111
+};
 console.log(newObject);
+
+// TEMPLATE LITERALS
+//możliwia tworzenie ciągów znaków zawierających zmienne i wyrażenia JavaScript. Zamiast używać zwykłych lub podwójnych cudzysłowów, literały szablonów korzystają z backticków (`). Wewnątrz takiego ciągu można umieścić wyrażenia JavaScript, otaczając je znakiem dolara i nawiasami klamrowymi (${wyrażenie}).
+
+const summary = `${title}, a ${pages}-pages was written by ${author} and published in ${
+  publicationDate.split("-")[0]
+}. The book ${hasMovieAdaptation ? "" : "no "}been adapted as a movie`;
+
+summary;
+
+// TERNARIES INSTEAD OF IF/ELSE STATEMENTS / ternary operator
+// definiowania wartości warunkowych bez użycia instrukcji if-else. Operator trójskładnikowy składa się z trzech części: warunku, wartości zwracanej, gdy warunek jest prawdziwy, i wartości zwracanej, gdy warunek jest fałszywy. Jonas pokazuje, jak używać tego operatora na przykładzie książki, oceniając liczbę stron i tworząc odpowiedni komunikat. Dodatkowo demonstruje użycie operatora trójskładnikowego wewnątrz literałów szablonowych do dynamicznego tworzenia ciągów znaków.
+
+// Operator trójskładnikowy (ternary operator):
+
+// Składnia: warunek ? wartość_true : wartość_false
+// Używany do warunkowego przypisywania wartości.
+
+const pagesRange = pages > 1000 ? `over a thousand` : "less then 1000";
+pagesRange;
+
+console.log(`The book has ${pagesRange} pages`);
+
+// ARROW FUNCTIONS
+// Funkcje strzałkowe mają prostszą składnię i automatycznie zwracają wartość, jeśli są zapisane w jednej linii.
+
+// Funkcje Strzałkowe (Arrow Functions):
+
+// Składnia: const nazwaFunkcji = (parametr) => wartośćDoZwrócenia;
+
+// Skrócona forma funkcji dla prostych operacji.
+// Automatyczny zwrot wartości dla jednowierszowych funkcji bez bloku kodu.
+
+// Używaj nawiasów, gdy masz wiele parametrów lub linijek kodu.
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
