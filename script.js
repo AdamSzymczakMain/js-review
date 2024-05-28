@@ -276,3 +276,13 @@ essentialData;
 ////////////////////////////////////////////////////////////////
 
 // THE ARRAY FILTER METHOD
+
+const longBookWithMovie = books
+  .filter((a) => a.pages > 500)
+  .filter((a) => a.hasMovieAdaptation);
+longBookWithMovie;
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooks;
