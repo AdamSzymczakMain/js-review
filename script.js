@@ -142,8 +142,8 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
-
-const book = getBook(1);
+/*
+const book = getBook(3);
 
 const { author, title, genres, pages, publicationDate, hasMovieAdaptation } =
   book;
@@ -209,3 +209,70 @@ console.log(`The book has ${pagesRange} pages`);
 
 const getYear = (str) => str.split("-")[0];
 console.log(getYear(publicationDate));
+
+//////////////////////////////////////
+// Logical Operators
+
+// && and operator
+console.log(true && "wartość"); // przy true zwraca druga wartość
+console.log(hasMovieAdaptation && "This book has a movie");
+
+console.log(false && "wartość"); // przy false nie patrzy na drugą wartość
+// falsy: 0,'',null,undefined
+
+// || or operator
+
+console.log(true || "Some string"); // jeżeli pierwsza wartość jest true nie patrzy na kolejną
+console.log(false || "Some string"); // szuka true
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+spanishTranslation;
+
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || "no data";
+// countWrong;
+
+// const count = book.reviews.librarything.reviewsCount ?? "no data";
+
+// return 'no data' kiedy undefined lub null
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// OPTIONAL CHAINING
+
+function getTotalReviewCount(a) {
+  const goodreviews = book.reviews.goodreads?.reviewsCount || 0;
+  const librarything = book.reviews.librarything?.reviewsCount || 0;
+  return goodreviews + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+*/
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// THE ARRAY MAP METHOD
+
+const books = getBooks();
+books;
+
+const titles = books.map((a) => a.title);
+titles;
+
+const essentialData = books.map((a) => ({
+  titles: a.title,
+  author: a.author,
+}));
+essentialData;
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// THE ARRAY FILTER METHOD
