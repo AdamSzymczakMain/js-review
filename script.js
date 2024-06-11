@@ -257,6 +257,7 @@ console.log(getTotalReviewCount(book));
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
+/*
 // THE ARRAY MAP METHOD
 
 const books = getBooks();
@@ -286,3 +287,54 @@ const adventureBooks = books
   .filter((books) => books.genres.includes("adventure"))
   .map((book) => book.title);
 adventureBooks;
+
+// THE ARRAY REDUCE METHOD
+
+const pagesAllBook = books.reduce((acc, books) => acc + books.pages, 0);
+pagesAllBook;
+
+// THE ARRAY SORT METHOD
+
+const arr = [3, 7, 5, 2, 9, 1, 0];
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+
+////////
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
+
+// IMMUTABLE ARRAY
+
+// 1) ADD BOOK OBJECT TO ARRAY
+
+const newBook = {
+  id: 6,
+  title: "Harry Potter And The Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+
+const booksAfterAdd = [...books, newBook];
+
+booksAfterAdd;
+
+// 2) Delete book object from array
+
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+booksAfterDelete;
+
+// 3) Update book object in the array
+
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 4 ? { ...book, pages: 777 } : book
+);
+booksAfterUpdate;
+*/
+// Asynchronous JavaScript: Promises
+
+fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+  res.json().then((data) => console.log(data))
+);
+
+console.log("puk puk!");
